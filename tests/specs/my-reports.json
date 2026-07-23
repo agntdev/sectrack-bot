@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/my_reports",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "View submission history and statuses"
+            }
+          }
+        ],
+        "send": {
+          "text": "/my_reports"
+        }
+      }
+    ]
+  }
+]
