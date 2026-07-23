@@ -6,7 +6,25 @@ import type { StorageAdapter } from "grammy";
 // bot grows. Durable domain data must NOT live here — use the toolkit's
 // persistent storage (see AGENTS.md).
 export interface Session {
-  // example: step?: "awaiting_amount";
+  /** Current conversation step for multi-step flows. */
+  step?:
+    | "idle"
+    | "learning:select_topic"
+    | "learning:lesson"
+    | "learning:quiz"
+    | "report:select_type"
+    | "report:enter_title"
+    | "report:enter_steps"
+    | "report:select_severity"
+    | "report:confirming";
+  /** Accumulated data for the current flow. */
+  flow_data?: Record<string, unknown>;
+  /** User profile (cached from persistent store). */
+  user_profile?: {
+    telegram_id: number;
+    display_name: string;
+    role: "learner" | "owner";
+  };
 }
 
 export type Ctx = BotContext<Session>;

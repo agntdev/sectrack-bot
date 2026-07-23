@@ -3,17 +3,28 @@
     "name": "Start Learning",
     "steps": [
       {
+        "send": { "callback": "learn:select_topic" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Begin interactive lessons"
-            }
+            "method": "answerCallbackQuery"
+          },
+          {
+            "method": "editMessageText",
+            "payload": { "text": "Pick a topic to start learning:" }
           }
-        ],
-        "send": {
-          "callback": "learn:select_topic"
-        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Start Learning shows topic options",
+    "steps": [
+      {
+        "send": { "callback": "learn:select_topic" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "editMessageText" }
+        ]
       }
     ]
   }

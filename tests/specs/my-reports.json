@@ -1,19 +1,15 @@
 [
   {
-    "name": "/my_reports",
+    "name": "/my_reports shows empty state when no reports exist",
     "steps": [
       {
+        "send": { "text": "/my_reports" },
         "expect": [
           {
             "method": "sendMessage",
-            "payload": {
-              "text": "View submission history and statuses"
-            }
+            "payload": { "text": "📋 You haven't submitted any reports yet.\n\nTap 📝 Submit Report to create one." }
           }
-        ],
-        "send": {
-          "text": "/my_reports"
-        }
+        ]
       }
     ]
   }
