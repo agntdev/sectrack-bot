@@ -3,17 +3,14 @@
     "name": "Submit Report",
     "steps": [
       {
+        "send": { "callback": "report:start" },
         "expect": [
+          { "method": "answerCallbackQuery" },
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Initiate vulnerability/report submission flow"
-            }
+            "method": "editMessageText",
+            "payload": { "text": "📝 Let's submit a report.\n\nWhat type of report is this?" }
           }
-        ],
-        "send": {
-          "callback": "report:start"
-        }
+        ]
       }
     ]
   }
